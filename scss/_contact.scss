@@ -1,0 +1,124 @@
+.contact{
+  @include  background(url('../images/contact_bg.png'),no-repeat, cover);
+
+  background-position: center center;
+  margin-bottom: -1px;
+  &_content{
+    @include adaptive(mobile){
+      padding: 30px;
+    }
+    @extend %site_width;
+
+    padding: 75px 0;
+
+    & .contact_form{
+
+      fieldset{
+        @include flex(column,nowrap,center);
+
+        align-items: stretch;
+        border: none;
+
+
+        & .contact_top{
+          position: relative;
+
+          &_text{
+            @include adaptive(mobile){
+              position: relative;
+              top: 0;
+              left: 0;
+            }
+            @include font(14px, 'SegoeUI', normal, $white_text);
+
+            font-weight: 700;
+            position: absolute;
+            top: 10%;
+            left: 50%;
+          }
+
+          &_address{
+            @include adaptive(mobile){
+              position: relative;
+              top: 0;
+              left: 0;
+            }
+            @include font(14px, 'SegoeUI', normal, $white_text);
+
+            font-weight: 700;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+          }
+        }
+
+
+        legend{
+          @include font(30px, 'SegoeUI-Light', normal, $white_text);
+
+
+          position: relative;
+          font-weight: 300;
+          &:after{
+            content: '';
+            position:absolute;
+            width: 35%;
+            bottom: -10%;
+            left: 3px;
+            border-bottom: 2px solid $white_text;
+
+          }
+        }
+
+        & .contact_field{
+          @include adaptive(mobile){
+            max-width: 470px;
+            width: 100%;
+          }
+          @include font(16px, 'SegoeUI',normal, $white_text);
+
+          width: 470px;
+          height: 60px;
+          display: block;
+          background: none;
+          border: 2px solid $white_text;
+          margin: 10px 0;
+          padding-left: 10px;
+        }
+
+        & .contact_message{
+          @include adaptive(mobile){
+            max-width: 470px;
+            width: 100%;
+          }
+          @include font(18px, 'SegoeUI',normal, $white_text);
+
+          width: 100%;
+          height: 220px;
+          display: block;
+          background: none;
+          border: 2px solid $white_text;
+          margin: 10px 0;
+          padding: 10px;
+        }
+
+        & .contact_submit{
+          @include font(14px, 'SegoeUI',normal, $white_text);
+
+          font-weight: 600;
+          padding: 20px 150px;
+          background: #4bc9ff;
+          border: none;
+
+        }
+
+        & .contact_field_title{
+          @include font(14px, 'SegoeUI',normal, $white_text);
+
+          font-weight: bold;
+          margin: 40px 0;
+        }
+      }
+    }
+  }
+}

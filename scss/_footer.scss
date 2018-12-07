@@ -1,0 +1,54 @@
+footer {
+  background: $footer_bg_color;
+
+  & .footer_content {
+    @include adaptive(mobile){
+      @include flex(column, nowrap, center);
+    }
+    @include flex(row, nowrap, space-between);
+    @extend %site_width;
+
+    align-items: center;
+    padding: 75px 0;
+
+    & .footer_navigation_list {
+      @include flex(row, nowrap, center);
+
+      align-items: center;
+
+      & .footer_navigation_item {
+        padding: 0 10px;
+        border-right: 1px solid $footer_text_color;
+
+        &:last-child{
+          border:none;
+        }
+      }
+
+      & .footer_navigation_link {
+        @include font(12px, 'SegoeUI', normal, $footer_text_color);
+
+        font-weight: 600;
+
+        &:first-child {
+          padding-left: 0;
+        }
+        &:last-child {
+          padding-right: 0;
+        }
+        &:hover{
+          color: $footer_link_hover;
+          text-decoration: none;
+        }
+      }
+
+    }
+
+
+    & .copyright_text{
+      @include font(12px, 'SegoeUI', normal, $footer_text_color);
+
+      font-weight: 600;
+    }
+  }
+}

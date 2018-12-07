@@ -1,0 +1,125 @@
+.section {
+  @include adaptive(mobile){
+    .section_content{
+      @include flex(column, nowrap, center);
+
+      padding: 30px;
+    }
+  }
+  background: $section_bg_color;
+
+  &_content {
+    @extend %site_width;
+    @include flex(row,nowrap,space-between);
+
+    align-items: center;
+    padding: 75px 0;
+    position: relative;
+
+    & .section_title {
+      @include font(30px, 'SegoeUI-Light', normal, $white_text);
+
+      position: relative;
+      font-weight: 300;
+      &:after {
+        content: '';
+        position: absolute;
+        width: 10%;
+        bottom: -10%;
+        left: 3px;
+        border-bottom: 2px solid $white_text;
+
+      }
+    }
+
+    & .section_description {
+      @include adaptive(mobile){
+        padding:20px 0;
+        width: 100%;
+      }
+
+      width: 50%;
+      padding-right: 150px;
+
+      &_primary, &_secondary{
+        @include font(14px, 'SegoeUI', normal, $white_text);
+
+        margin: 35px 0;
+
+      }
+
+      &_link{
+        @include adaptive(mobile){
+            @include flex(row,nowrap,center);
+
+          align-items: center;
+        }
+
+
+        @include font(14px, 'SegoeUI', normal, $section_btn_color);
+        border: 2px solid $section_btn_color;
+        padding: 10px 40px;
+
+        &:hover{
+          transform: scale(.9);
+          transition: .3s ease-out;
+          text-transform: none;
+        }
+      }
+    }
+
+  }
+}
+
+
+.section_video{
+  @include adaptive(mobile){
+    .section_video_file{
+      max-width:560px;
+      width: 100%;
+      height: auto;
+    }
+    .functions{
+      display: none;
+    }
+  }
+  position: relative;
+  width: 100%;
+
+
+  & .video_controls_bar{
+    position: absolute;
+    bottom: 2%;
+
+    & .playpausebtn{
+      @include background(url(../video/play.png), no-repeat);
+
+      border:0;
+      width: 66px;
+      height: 41px;
+      cursor: pointer;
+      opacity: .8;
+      margin:5px;
+
+      &:hover{
+        opacity: 1;
+      }
+
+    }
+
+    & .functions{
+      @include background(url(../video/bar.png), no-repeat);
+
+      border:0;
+      width: 465px;
+      height: 32px;
+      cursor: pointer;
+      opacity: .8;
+
+      &:hover{
+        opacity: 1;
+      }
+
+    }
+  }
+}

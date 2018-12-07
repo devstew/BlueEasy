@@ -1,0 +1,22 @@
+{
+  "name": "project_1",
+  "version": "1.0.0",
+  "main": "index.js",
+  "dependencies": {
+    "gulp": "^3.9.1",
+    "gulp-sass": "^4.0.2",
+    "gulp-tinypng-compress": "^1.2.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://vg08880@bitbucket.org/vg08880/group_boys.git"
+  },
+  "homepage": "https://bitbucket.org/vg08880/group_boys#readme",
+  "description": ""
+}

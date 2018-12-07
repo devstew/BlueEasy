@@ -1,0 +1,45 @@
+.twitter {
+  background: $twitter_bg_color;
+
+  &_content {
+    @include adaptive(mobile){
+      padding: 30px;
+    }
+    @extend %site_width;
+
+    padding: 75px 0;
+    position: relative;
+
+    & .twitter_title {
+      @include font(30px, 'SegoeUI-Light', normal, $white_text);
+      @include clearfix();
+
+      position: relative;
+      font-weight: 300;
+      &:after {
+        content: '';
+        position: absolute;
+        width: 4%;
+        bottom: -10%;
+        left: 3px;
+        border-bottom: 2px solid $white_text;
+
+      }
+    }
+
+    & .twitter_mark {
+      float: right;
+    }
+
+    & .twitter_text{
+      @include font(28px, 'SegoeUI-Light', 50px, $white_text);
+
+      margin: 35px 0 0;
+
+      #twitter_nickname{
+        font-weight: bold;
+      }
+    }
+
+  }
+}

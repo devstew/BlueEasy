@@ -1,0 +1,116 @@
+.portfolio {
+  @include adaptive(mobile) {
+    .portfolio_content {
+      padding: 30px;
+    }
+  }
+  background: $white_bg;
+
+  &_content {
+    @extend %site_width;
+
+    padding: 75px 0;
+    position: relative;
+
+    & .portfolio_content_header {
+      @include flex(row, nowrap, space-between);
+      @include adaptive(mobile) {
+        @include flex(column, nowrap, space-between);
+
+        & .portfolio_nav_list {
+          @include flex(column, nowrap, flex-start);
+
+          align-items: flex-start;
+          margin: 35px 0;
+        }
+      }
+    }
+
+    & .portfolio_title {
+      @include font(30px, 'SegoeUI-Light', normal, $portfolio_text);
+
+      position: relative;
+      font-weight: 300;
+      &:after {
+        content: '';
+        position: absolute;
+        width: 30%;
+        bottom: -10%;
+        left: 3px;
+        border-bottom: 2px solid $portfolio_text;
+
+      }
+    }
+
+    & .portfolio_nav_list {
+      @include adaptive(mobile) {
+        .portfolio_nav_item {
+          margin-bottom: 15px;
+        }
+      }
+
+      @include flex(row, nowrap, center);
+
+      align-items: center;
+    }
+
+    & .portfolio_nav_item {
+      margin-right: 35px;
+
+      &:last-child {
+        margin-right: 0;
+      }
+
+      & .portfolio_nav_link {
+        @include font(14px, 'SegoeUI', normal, $portfolio_text);
+
+        font-weight: 700;
+        padding: 5px 15px;
+
+        &:hover {
+          transition: .2s ease-in;
+          color: $portfolio_hover;
+          outline: 2px solid $portfolio_hover;
+          text-decoration: none;
+        }
+      }
+    }
+
+    .portfolio_gallery {
+      @include adaptive(mobile) {
+        margin: 35px 0;
+      }
+      margin: 85px 0;
+
+      &_list {
+        @include flex(row, wrap, space-between);
+
+        align-items: center;
+
+      }
+
+      & .portfolio_gallery_item {
+        @include adaptive(mobile) {
+          width: calc(100% / 2);
+          padding: 5px;
+          margin-bottom: 0;
+        }
+
+        position: relative;
+        width: calc(100% / 4);
+        margin-bottom: 30px;
+
+        &:hover .portfolio_item_add {
+          position: absolute;
+          top: 0;
+          left: 0;
+          display: block;
+        }
+      }
+
+      & .portfolio_item_add {
+        display: none;
+      }
+    }
+  }
+}

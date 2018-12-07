@@ -1,0 +1,97 @@
+.whois {
+  @include background(url('../images/who_photo.png'), no-repeat, cover);
+
+  background-position: center center;
+
+  &_content {
+    @include adaptive(mobile){
+      padding:30px;
+    }
+    @extend %site_width;
+
+    padding: 75px 0 175px;
+    position: relative;
+
+    & .whois_title {
+      @include font(30px, 'SegoeUI-Light', normal, $white_text);
+      @include clearfix();
+
+      position: relative;
+      font-weight: 300;
+      &:after {
+        content: '';
+        position: absolute;
+        width: 4%;
+        bottom: -10%;
+        left: 3px;
+        border-bottom: 2px solid $white_text;
+
+      }
+
+    }
+
+    & .whois_info {
+      @include adaptive(mobile){
+        @include flex(column, nowrap, center);
+
+        align-items: center;
+      }
+      @include font(14px, 'SegoeUI', normal, $white_text);
+      @include flex(row, wrap, center);
+
+      align-items: center;
+
+      &_primary {
+        @include adaptive(mobile){
+          width: 100%;
+        }
+
+
+        margin: 35px 0;
+        width: 50%;
+      }
+
+      &_secondary {
+        @include adaptive(mobile){
+          width: 100%;
+        }
+        width: 50%;
+      }
+
+      &_text {
+        @include adaptive(mobile){
+          width: 100%;
+        }
+        width: 50%;
+      }
+
+      & .whois_share {
+        @include adaptive(mobile){
+          width: 100%;
+          margin: 20px 0;
+        }
+        @include flex(row, nowrap, flex-start);
+
+        align-items: center;
+        width: 50%;
+
+        &_item {
+          width: 60px;
+          height: 60px;
+          border: 2px solid $white_text;
+          padding: 15px;
+          margin-right: 20px;
+
+          &:last-child {
+            margin-right: 0;
+          }
+
+          &:hover{
+            transform: scale(.9);
+            transition: .3s ease-out;
+          }
+        }
+      }
+    }
+  }
+}

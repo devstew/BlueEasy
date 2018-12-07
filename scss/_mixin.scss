@@ -1,0 +1,137 @@
+@mixin site_width ($max-width: $site_width) {
+    margin: 0 auto;
+    max-width: $max-width;
+}
+
+@mixin background ($bg-image: none, $bg-repeat: no-repeat, $bg-size:cover) {
+    background-image: $bg-image;
+    background-repeat: $bg-repeat;
+    background-size: $bg-size;
+}
+
+@mixin font ($font-size:$primary_fs, $font-family: $primary_ff, $line-height: 1, $color: black) {
+    font-size: #{$font_size/$primary_fs}rem;
+    font-family: $font-family;
+    line-height: $line-height;
+    color: $color;
+}
+
+@mixin flex ($direction:row, $wrap: nowrap, $justify-content: space-between) {
+    display: flex;
+    flex-direction: $direction;
+    flex-wrap: $wrap;
+    justify-content: $justify-content; 
+}
+
+@mixin align ($display: inline-block, $vertical-align: top) {
+    display: $display;
+    vertical-align: $vertical-align;
+}
+
+@mixin position ($position:$position, $top:auto, $left:auto, $right:auto, $bottom: auto) {
+    position: $position;
+    top:$top;
+    left:$left;
+    right: $right;
+    bottom: $bottom;
+}
+
+@mixin before ($content: "", $left: auto, $top: auto, $right: auto, $bottom: auto, $width: 100%, $height: 100%, $bg-color: transparent) {
+    &:before {
+        content: $content;
+        position: absolute;
+        left: $left;
+        top: $top;
+        right: $right;
+        bottom: $bottom;
+        width: $width;
+        height: $height;
+        background-color: $bg-color;
+    }
+}
+
+@mixin after ($content: "", $right: auto, $top: auto, $left: auto, $bottom: auto, $width: 100%, $height: 100%, $bg-color: transparent) {
+    &:after {
+        content: $content;
+        position: absolute;
+        left: $left;
+        top: $top;
+        right: $right;
+        bottom: $bottom;
+        width: $width;
+        height: $height;
+        background-color: $bg-color;
+    }
+}
+
+@mixin triangle_left ($color ) {
+    &::after {
+        content: '';
+        height: 0;
+        width: 0;
+        border: 48px solid transparent;
+        border-right:  $color;
+        
+        
+    }
+}
+
+@mixin transition ($transition-property: all, $transition-duration: 2s, $transition-timing-function:linear) {
+    transition-property: $transition-property;
+    transition-duration: $transition-duration;
+    transition-timing-function: $transition-timing-function;
+}
+
+@mixin clearfix() {
+    &::after {
+        content: '';
+        display: block;
+        width: 100%;
+        clear: both;
+    }
+}
+
+@mixin border_bottom () {
+    &::after {
+        content: '';
+        display: block;
+        width: 100%;
+        height: 4px;
+        position: absolute;
+        left: 0;
+        bottom: 22px;
+        background: url(../images/dashed_section_line.png) repeat-x;
+    }
+}
+
+@mixin border_top () {
+    &::before {
+        content: '';
+        display: block;
+        width: 100%;
+        height: 4px;
+        position: absolute;
+        left: 0;
+        top: 22px;
+        background: url(../images/dashed_section_line.png) repeat-x;
+    }
+}
+
+@mixin adaptive ($media){
+    @if $media == mobile {
+        @media only screen and  (min-width: 320px) and (max-width: 640px) {
+            @content
+        }
+    }
+    @if $media == tablet {
+        @media only screen and  (min-width: 641px) and (max-width: 960px) {
+            @content
+        }
+    }
+    @if $media == desktop {
+        @media only screen and  (min-width: 961px) and (max-width: 1024px) {
+            @content
+        }
+    }
+}
+

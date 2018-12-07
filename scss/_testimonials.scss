@@ -1,0 +1,49 @@
+.testimonials{
+  background: #fff;
+
+  &_content{
+    @include adaptive(mobile){
+      padding: 30px;
+    }
+    @extend %site_width;
+
+    padding: 75px 0;
+    position: relative;
+
+    & .testimonials_title{
+      @include font(30px, 'SegoeUI-Light', normal, $testimonials_text_color);
+      @include clearfix();
+
+
+      position: relative;
+      font-weight: 300;
+      &:after{
+        content: '';
+        position:absolute;
+        width: 4%;
+        bottom: -10%;
+        left: 3px;
+        border-bottom: 2px solid $testimonials_text_color;
+
+      }
+    }
+
+    & .testimonials_quote_mark{
+      float: right;
+    }
+
+    & .testimonials_quote{
+      @include font(28px, 'SegoeUI-Light', normal, $testimonials_text_color);
+
+
+      margin: 40px 0;
+    }
+
+    & .testimonials_quote_author{
+      @include font(14px, 'SegoeUI', normal, #4bcaff);
+
+
+      font-weight: 700;
+    }
+  }
+}

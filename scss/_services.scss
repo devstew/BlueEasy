@@ -1,0 +1,82 @@
+.services {
+  @include adaptive(mobile){
+    .services_content{
+      padding:30px;
+    }
+  }
+
+  background: $services_bg_color;
+
+  &_content {
+    @extend %site_width;
+
+
+    padding: 75px 0;
+    position: relative;
+
+    & .services_title {
+      @include font(30px, 'SegoeUI-Light', normal, $white_text);
+
+      position: relative;
+      font-weight: 300;
+      &:after {
+        content: '';
+        position: absolute;
+        width: 3%;
+        bottom: -10%;
+        left: 3px;
+        border-bottom: 2px solid $white_text;
+      }
+    }
+  }
+}
+
+.services_features{
+  @include adaptive(mobile){
+    .services_features_list{
+      @include flex(column, nowrap, center);
+
+      text-align: center;
+    }
+  }
+  margin: 35px 0 0;
+  &_list{
+    @include adaptive(mobile){
+      .services_features_item{
+        padding:30px;
+      }
+    }
+    @include flex(row,nowrap,space-between);
+
+
+    align-items: center;
+
+
+  }
+
+  &_item{
+    @include adaptive(mobile){
+      &:last-child{
+        margin-right: 40px;
+      }
+    }
+    padding-right:40px;
+
+    &:last-child{
+      padding-right: 0;
+    }
+  }
+
+  & .services_feature_title{
+    @include font(24px, 'SegoeUI',normal, $white_text);
+
+    font-weight: 600;
+    margin: 15px 0;
+  }
+
+  & .services_feature_description{
+    @include font(12px, 'SegoeUI',normal, $white_text);
+
+    font-weight: 600;
+  }
+}

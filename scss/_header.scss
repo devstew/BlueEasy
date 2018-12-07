@@ -1,0 +1,70 @@
+header {
+
+  background: rgba(53, 63, 70, 0.7);
+  position: relative;
+
+  & .header_content {
+    @include adaptive(mobile) {
+      padding: 30px;
+    }
+    @extend %site_width;
+    @include flex(row, nowrap, space-between);
+
+    align-items: center;
+    min-height: 150px;
+  }
+
+  & .burger_label {
+    display: none;
+  }
+
+  & .burger_check {
+    display: none;
+  }
+
+  .nav {
+    @include adaptive(mobile) {
+      & .burger_label {
+        display: inline-block;
+      }
+    }
+  }
+
+
+
+  & .header_nav_list {
+    @include adaptive(mobile){
+      display: none;
+    }
+    @include flex(row, nowrap, center);
+
+    align-items: center;
+  }
+
+  .burger_check:checked + .header_nav_list {
+    display: block;
+  }
+
+
+  & .header_nav_item {
+    margin-right: 15px;
+
+    &:last-child {
+      margin-right: 0;
+    }
+
+    & .header_nav_link {
+      @include font(14px, 'SegoeUI', normal, $white_text);
+
+      font-weight: 700;
+      padding: 5px 15px;
+
+      &:hover {
+        transition: .2s ease-in;
+        color: $portfolio_hover;
+        outline: 2px solid $portfolio_hover;
+        text-decoration: none;
+      }
+    }
+  }
+}

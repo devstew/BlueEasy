@@ -1,0 +1,37 @@
+.hero {
+  @include background(url('../images/hero_ bg.png'), no-repeat, cover);
+  @include flex(column, nowrap, center);
+  @include adaptive(mobile){
+    .hero_content{
+      padding:30px;
+      transform: translateY(-20%);
+    }
+  }
+
+  height: 800px;
+  align-items: center;
+  margin-top: -150px;
+  &_content {
+    text-align: center;
+
+    & .hero_title {
+      @include font(42px, 'SegoeUI-Light',normal, $white_text);
+
+      font-weight: 300;
+      text-transform: uppercase;
+      transform: translateY(50%);
+      & .hero_title_top {
+        background: rgba(53,63,70, 0.7);
+        display: inline-block;
+        margin-bottom:10px;
+        padding: 5px 20px;
+      }
+
+      & .hero_title_bottom{
+        background: rgba(53,63,70, 0.7);
+        display: block;
+        padding: 5px 20px;
+      }
+    }
+  }
+}
